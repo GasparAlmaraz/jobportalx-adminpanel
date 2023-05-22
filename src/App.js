@@ -1,18 +1,19 @@
 import React from "react";
 import { Admin, Resource, ListGuesser } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import UsersList from "./Components/UsersList";
+import ApplicantList from "./Components/ApplicantList";
+import applicantEdit from "./Components/ApplicantEdit";
 
 
-const dataProvider = jsonServerProvider('https://pi-pokemon-back-production-c25c.up.railway.app');
+
+const dataProvider = jsonServerProvider('http://localhost:3001');
 
 function App() {
 
-
-
   return (
     <Admin dataProvider={dataProvider}>
-      <Resource name="Pokemons" list={ListGuesser} />
+      <Resource name="applicant" list={ApplicantList} edit={applicantEdit} />
+      {/* <Resource name="company" list={CompaniesList} /> */}
     </Admin>
   );
 }
