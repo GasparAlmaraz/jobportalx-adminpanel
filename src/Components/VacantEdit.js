@@ -6,7 +6,7 @@ const vacantEdit = (props) => (
         <SimpleForm warnWhenUnsavedChanges>
             <TextInput disabled source="id" />
             
-            <TextInput source="title" />
+            <TextInput source="title" fullWidth multiline />
             <TextInput source="description" fullWidth multiline />
             <DateInput source="createdAt" />
             <ReferenceField source="CompanyId" reference="Company" >
