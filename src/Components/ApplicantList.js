@@ -1,9 +1,9 @@
 import React from "react";
-import { BooleanField, Datagrid, EmailField, List, NumberField, TextField, Filter, SearchInput } from 'react-admin';
+import { BooleanField, Datagrid, EmailField, List, TextField, Filter, SearchInput } from 'react-admin';
 
 const applicantFilter = (props) => (
   <Filter>
-    <SearchInput placeholder="Search Type" source="name" resettable alwaysOn/>
+    <SearchInput placeholder="Search User" source="name" resettable alwaysOn/>
   </Filter>
 )
 
@@ -17,8 +17,7 @@ export const ApplicantList = () => (
             <TextField source="cellphone" />
             <BooleanField source="registed" label="Status" />
             <TextField source="profile" />
-            <NumberField source="Cv.id" />
-            <TextField source="Vacants" />
+            <TextField source="Cv.dni" label="DNI"/>
         </Datagrid>
     </List>
 );

@@ -7,7 +7,7 @@ const applicantEdit = (props) => (
             <TextInput disabled source="id" />
             <TextInput source="name" />
             <TextInput source="lastName" />
-            <TextInput source="email" />
+            <TextInput disabled source="email" />
             <SelectInput source="profile" choices={[
                 { id: 'admin', name: 'admin'},
                 { id: 'applicant', name: 'applicant'},
