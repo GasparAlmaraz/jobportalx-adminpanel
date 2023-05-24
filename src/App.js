@@ -1,5 +1,5 @@
 import React from "react";
-import { Admin, ListGuesser, Resource } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
 import {ApplicantList} from "./Components/ApplicantList";
 import applicantEdit from "./Components/ApplicantEdit";
@@ -19,8 +19,8 @@ function App() {
   return (
     <Admin dataProvider={dataProvider}>
       <Resource name="applicant" list={ApplicantList} edit={applicantEdit} />
-      <Resource name="company" list={ListGuesser} edit={companyEdit}/>
-      <Resource name="job" list={ListGuesser} edit={vacantEdit}/>
+      <Resource name="company" list={CompanyList} edit={companyEdit}/>
+      <Resource name="job" list={JobList} edit={vacantEdit}/>
     </Admin>
   );
 }
