@@ -1,13 +1,13 @@
 import React from "react";
-import { Edit, SelectInput, SimpleForm, TextInput} from "react-admin";
+import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator} from "react-admin";
 
 const applicantEdit = (props) => (
     <Edit {...props}>
         <SimpleForm warnWhenUnsavedChanges>
-            <TextInput disabled source="id" />
+            <TextInput disabled source="id" fullWidth multiline/>
             <TextInput source="name" />
             <TextInput source="lastName" />
-            <TextInput disabled source="email" />
+            <TextInput disabled source="email" fullWidth multiline/>
             <SelectInput source="profile" choices={[
                 { id: 'admin', name: 'admin'},
                 { id: 'applicant', name: 'applicant'},
@@ -16,6 +16,11 @@ const applicantEdit = (props) => (
                 { id: 'false', name: 'Banned', value:'false' },
                 { id: 'true', name: 'Active', value:'true' }
             ]} label='Status' />
+            <ArrayInput source="Vacants">
+                <SimpleFormIterator inline>
+                    <TextInput disabled source="title" fullWidth multiline/>
+                </SimpleFormIterator>
+            </ArrayInput>
         </SimpleForm>
     </Edit>
 );

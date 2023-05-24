@@ -3,23 +3,20 @@ import { BooleanField, Datagrid, EmailField, List, TextField, Filter, SearchInpu
 
 const applicantFilter = (props) => (
   <Filter>
-    <SearchInput placeholder="Search User" source="name" resettable alwaysOn/>
+    <SearchInput placeholder="Search User" source="name" resettable alwaysOn />
   </Filter>
 )
 
 export const ApplicantList = () => (
-    <List filters={applicantFilter()}>
-        <Datagrid rowClick="edit">
-            <TextField source="id" />
-            <TextField source="name" />
-            <TextField source="lastName" />
-            <EmailField source="email" />
-            <TextField source="cellphone" />
-            <BooleanField source="registed" label="Status" />
-            <TextField source="profile" />
-            <TextField source="Cv.dni" label="DNI"/>
-        </Datagrid>
-    </List>
+  <List filters={applicantFilter()}>
+    <Datagrid rowClick="edit">
+      <TextField source="id" />
+      <TextField source="name" />
+      <TextField source="lastName" />
+      <EmailField source="email" />
+      <TextField source="cellphone" />
+      <BooleanField source="registed" label="Status" />
+      <TextField source="profile" />
+    </Datagrid>
+  </List>
 );
-
-export default ApplicantList;
