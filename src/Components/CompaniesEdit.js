@@ -15,8 +15,8 @@ const companyEdit = (props) => (
                 { id: 'true', name: 'Active', value: 'true' }
             ]} label='Status' />
             <SelectInput source="profile" choices={[
-                { id: 'admin', name: 'Admin Company' },
-                { id: 'company', name: 'Company' },
+                { id: 'Admin', name: 'Admin Company' },
+                { id: 'Company', name: 'Company' },
             ]} />
         </SimpleForm>
     </Edit>

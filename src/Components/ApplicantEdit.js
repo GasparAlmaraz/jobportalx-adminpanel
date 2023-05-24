@@ -9,8 +9,8 @@ const applicantEdit = (props) => (
             <TextInput source="lastName" />
             <TextInput disabled source="email" fullWidth multiline/>
             <SelectInput source="profile" choices={[
-                { id: 'admin', name: 'admin'},
-                { id: 'applicant', name: 'applicant'},
+                { id: 'Admin', name: 'Admin'},
+                { id: 'Applicant', name: 'Applicant'},
             ]}/>
             <SelectInput source="registed" choices={[
                 { id: 'false', name: 'Banned', value:'false' },
