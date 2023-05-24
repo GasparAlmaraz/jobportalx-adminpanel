@@ -1,7 +1,7 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import ApplicantList from "./Components/ApplicantList";
+import {ApplicantList} from "./Components/ApplicantList";
 import applicantEdit from "./Components/ApplicantEdit";
 import CompanyList from "./Components/CompaniesList";
 import companyEdit from "./Components/CompaniesEdit";
@@ -9,8 +9,10 @@ import JobList from "./Components/VacantList";
 import vacantEdit from "./Components/VacantEdit";
 
 
-
-const dataProvider = jsonServerProvider('http://localhost:3001');
+//Developer
+//const dataProvider = jsonServerProvider('http://localhost:3001');
+//Main
+const dataProvider = jsonServerProvider('https://proyecto-final-production-9e7e.up.railway.app');
 
 function App() {
 
