@@ -8,7 +8,7 @@ const applicantFilter = (props) => (
 )
 
 export const ApplicantList = () => (
-  <List filters={applicantFilter()}>
+  <List filters={applicantFilter()} pagination={<></>}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="name" />
