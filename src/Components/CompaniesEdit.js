@@ -1,11 +1,12 @@
 import React from "react";
-import { Edit, SelectInput, SimpleForm, TextInput } from "react-admin";
+import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator, ChipField } from "react-admin";
+import { FaStar } from "react-icons/fa";
 
 const companyEdit = (props) => (
     <Edit {...props}>
         <SimpleForm warnWhenUnsavedChanges>
             <TextInput disabled source="id" />
-            <TextInput source="name" />
+            <TextInput source="name" label='Company Name' />
             <TextInput source="country" />
             <TextInput source="business_name" />
             <TextInput source="cuit" />
@@ -18,6 +19,12 @@ const companyEdit = (props) => (
                 { id: 'Admin', name: 'Admin Company' },
                 { id: 'Company', name: 'Company' },
             ]} />
+            <ArrayInput source="Stars">
+                <SimpleFormIterator inline addButton={<></>}>
+                    <ChipField source="stars" />
+                    <ChipField source="text" />
+                </SimpleFormIterator>
+            </ArrayInput>
         </SimpleForm>
     </Edit>
 );
