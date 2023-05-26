@@ -1,5 +1,6 @@
+import { TextField } from "@mui/material";
 import React from "react";
-import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator, ChipField } from "react-admin";
+import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator, ChipField, FunctionField } from "react-admin";
 import { FaStar } from "react-icons/fa";
 
 const companyEdit = (props) => (
@@ -20,9 +21,9 @@ const companyEdit = (props) => (
                 { id: 'Company', name: 'Company' },
             ]} />
             <ArrayInput source="Stars">
-                <SimpleFormIterator inline addButton={<></>}>
-                    <ChipField source="stars" />
-                    <ChipField source="text" />
+                <SimpleFormIterator inline addButton={<></>} reOrderButtons={<></>}>
+                    <TextInput disabled source="stars" label="Estrellas" />
+                    <TextInput disabled source="text" label="Comentario" fullWidth multiline/>
                 </SimpleFormIterator>
             </ArrayInput>
         </SimpleForm>

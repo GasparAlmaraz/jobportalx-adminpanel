@@ -1,10 +1,10 @@
 import React from "react";
-import { BooleanField, Datagrid, EmailField, List, TextField, Filter, SearchInput } from 'react-admin';
+import { BooleanField, Datagrid, EmailField, List, TextField, Filter, SearchInput, ArrayField, SingleFieldList, ChipField } from 'react-admin';
 
 
 const CompaniesFilter = (props) => (
   <Filter>
-    <SearchInput placeholder="Search Company" source="business_name" resettable alwaysOn />
+    <SearchInput placeholder="Search Company" source="name" resettable alwaysOn />
   </Filter>
 )
 
@@ -19,6 +19,11 @@ export const CompanyList = () => (
       <EmailField source="email" />
       <BooleanField source="registed" label="Status" />
       <TextField source="profile" />
+      <ArrayField source="Stars" perPage={2} >
+        <SingleFieldList multiline>
+          <ChipField source="text" size="small"/>
+        </SingleFieldList>
+      </ArrayField>
     </Datagrid>
   </List>
 );
