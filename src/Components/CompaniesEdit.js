@@ -1,7 +1,5 @@
-import { TextField } from "@mui/material";
 import React from "react";
-import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator, ChipField, FunctionField } from "react-admin";
-import { FaStar } from "react-icons/fa";
+import { Edit, SelectInput, SimpleForm, TextInput, ArrayInput, SimpleFormIterator } from "react-admin";
 
 const companyEdit = (props) => (
     <Edit {...props}>

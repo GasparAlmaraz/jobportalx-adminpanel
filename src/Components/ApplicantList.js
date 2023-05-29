@@ -15,8 +15,9 @@ export const ApplicantList = () => {
     <List filters={applicantFilter()} pagination={<></>}>
       {isSmall ? (
         <SimpleList 
-          primaryText={record => record.name}
-          secondaryText={record => record.profile}
+          primaryText={record => record.name + " " + record.lastName}
+          secondaryText={record => record.email}
+          tertiaryText={record => record.profile}
         />
       ) : (
         <Datagrid rowClick = "edit">
