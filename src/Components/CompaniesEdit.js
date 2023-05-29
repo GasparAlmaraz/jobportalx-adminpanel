@@ -9,7 +9,7 @@ const companyEdit = (props) => (
             <TextInput source="country" />
             <TextInput source="business_name" />
             <TextInput source="cuit" />
-            <TextInput disabled source="email" />
+            <TextInput disabled source="email" fullWidth multiline />
             <SelectInput source="registed" choices={[
                 { id: 'false', name: 'Banned', value: 'false' },
                 { id: 'true', name: 'Active', value: 'true' }

@@ -1,3 +1,4 @@
+import { RichTextInput } from "ra-input-rich-text";
 import React from "react";
 import { Edit, SelectInput, SimpleForm, TextInput, ReferenceField, DateInput } from "react-admin";
 
@@ -7,7 +8,7 @@ const vacantEdit = (props) => (
             <TextInput disabled source="id" />
 
             <TextInput source="title" fullWidth multiline />
-            <TextInput source="description" fullWidth multiline />
+            <RichTextInput source="description" fullWidth multiline />
             <DateInput source="createdAt" />
             <ReferenceField source="CompanyId" reference="Company" >
                 <TextInput source='business_name' />
