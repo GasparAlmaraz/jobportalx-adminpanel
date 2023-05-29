@@ -4,6 +4,7 @@ import { useDataProvider } from 'react-admin';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, Tooltip } from 'recharts';
 import { getLastResults } from "./utils/getLastResults";
 import { setDataChart } from "./utils/defineDataChart";
+import { truncateDescription } from "./utils/truncateText";
 
 export const Dashboard = () => {
     const [users, setUsers] = useState([]);
@@ -17,27 +18,27 @@ export const Dashboard = () => {
 
     useEffect(() => {
         dataProvider.getList('applicant', { pagination: { page: 1, perPage: 3 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setUsers(getLastResults(response.data)))
+            .then(response => response.total ? setUsers(getLastResults(response.data)) : setUsers([]))
             .catch(error => console.error(error));
 
         dataProvider.getList('stars', { pagination: { page: 1, perPage: 3 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setReviews(getLastResults(response.data)))
+            .then(response => response.total ? setReviews(getLastResults(response.data)) : setReviews([]))
             .catch(error => console.error(error));
 
         dataProvider.getList('job', { pagination: { page: 1, perPage: 3 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setVacancies(getLastResults(response.data)))
+            .then(response => response.total ? setVacancies(getLastResults(response.data)) : setVacancies([]))
             .catch(error => console.error(error));
 
         dataProvider.getList('company', { pagination: { page: 1, perPage: 50 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setcompaniesAmount(response.data))
+            .then(response => response.total ? setcompaniesAmount(response.data) : setcompaniesAmount([]))
             .catch(error => console.error(error));
 
         dataProvider.getList('applicant', { pagination: { page: 1, perPage: 50 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setUsersAmount(response.data))
+            .then(response => response.total ? setUsersAmount(response.data) : setUsersAmount([]))
             .catch(error => console.error(error));
 
         dataProvider.getList('job', { pagination: { page: 1, perPage: 50 }, sort: { field: 'id', order: 'DESC' } })
-            .then(response => setVacanciesAmount(response.data))
+            .then(response => response.total ? setVacanciesAmount(response.data) : setVacanciesAmount([]))
             .catch(error => console.error(error));
     }, [dataProvider]);
 
@@ -48,15 +49,15 @@ export const Dashboard = () => {
             <CardHeader title="Bienvenido al panel de administrador de JobPortal X" />
             <CardContent>
 
-                <Box display="flex" flexDirection="row" marginTop="20px" fontWeight="bold">
+                <Box display="flex" flexDirection="row" marginTop="20px" alignContent="space-around" fontWeight="bold">
                     <div display="flex" flexDirection="column" justifyContent="center">
                         <Typography variant="h6" component="h3">
                             Últimos usuarios registrados:
                         </Typography>
                         {
                             users.map(user => (
-                                <Typography key={user.id} variant="body2" component="p" >
-                                    Nombre: {user.name} {user.lastName}, {user.email}
+                                <Typography key={user?.id} variant="body2" component="p" >
+                                    Nombre: {user?.name} {user?.lastName}, {user?.email}
                                 </Typography>
                             ))
                         }
@@ -69,8 +70,8 @@ export const Dashboard = () => {
                         </Typography>
                         {
                             reviews.map(review => (
-                                <Typography key={review.id} variant="body2" component="p">
-                                    Estrellas: {review.stars}, Comentario: {review.text}
+                                <Typography key={review?.id} variant="body2" component="p">
+                                    Estrellas: {review?.stars}, Comentario: {truncateDescription(review?.stars, 10)}
                                 </Typography>
                             ))
                         }
@@ -82,8 +83,8 @@ export const Dashboard = () => {
                         </Typography>
                         {
                             vacancies.map(vacancy => (
-                                <Typography key={vacancy.id} variant="body2" component="p">
-                                    Título: {vacancy.title}, Descripción: {vacancy.description}
+                                <Typography key={vacancy?.id} variant="body2" component="p">
+                                    Título: {vacancy?.title}, Descripción: {truncateDescription(vacancy?.description, 10)}
                                 </Typography>
                             ))
                         }

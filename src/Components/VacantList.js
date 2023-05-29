@@ -1,5 +1,6 @@
 import React from "react";
-import { Datagrid, DateField, List, ReferenceField, TextField, Filter, SearchInput } from 'react-admin';
+import { Datagrid, DateField, List, ReferenceField, TextField, Filter, SearchInput, FunctionField } from 'react-admin';
+import { truncateDescription } from "./utils/truncateText";
 
 const CompaniesFilter = (props) => (
     <Filter>
@@ -12,7 +13,13 @@ const JobList = () => (
         <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="title" />
-            <TextField source="description" />
+            <FunctionField
+                source="description"
+                label="Descripción"
+                render={(record) => (
+                    <span>{truncateDescription(record.description, 40)}</span>
+                )}
+            />
             <DateField source="createdAt" />
             <ReferenceField source="CompanyId" reference="Company" >
                 <TextField source='business_name' />
