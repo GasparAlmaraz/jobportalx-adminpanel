@@ -11,9 +11,9 @@ import { Dashboard } from "./Components/Dashboard";
 
 
 //Developer
-const dataProvider = jsonServerProvider('http://localhost:3001');
+//const dataProvider = jsonServerProvider('http://localhost:3001');
 //Main
-//const dataProvider = jsonServerProvider('https://proyecto-final-production-9e7e.up.railway.app');
+const dataProvider = jsonServerProvider('https://proyecto-final-production-9e7e.up.railway.app');
 
 function App() {
 
