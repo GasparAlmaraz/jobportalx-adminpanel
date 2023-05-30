@@ -1,5 +1,5 @@
 import React from "react";
-import { Datagrid, DateField, List, ReferenceField, TextField, Filter, SearchInput, FunctionField } from 'react-admin';
+import { Datagrid, DateField, List, ReferenceField, TextField, Filter, SearchInput, FunctionField, BooleanField } from 'react-admin';
 import { truncateDescription } from "./utils/truncateText";
 
 const CompaniesFilter = (props) => (
@@ -24,6 +24,7 @@ const JobList = () => (
             <ReferenceField source="CompanyId" reference="Company" >
                 <TextField source='business_name' />
             </ReferenceField>
+            <BooleanField source="status" />
             <TextField source="Workday.name" />
             <TextField source="WorkMethod.name" />
             <TextField source="Seniority.name" />

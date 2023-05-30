@@ -29,6 +29,10 @@ const vacantEdit = (props) => (
                 { id: 'junior', name: 'Junior', value: 'Junior' },
                 { id: 'trainee', name: 'Trainee', value: 'Trainee' },
             ]} />
+            <SelectInput source="status" choices={[
+                { id: 'true', name: 'Active', value: 'true' },
+                { id: 'false', name: 'Deleted', value: 'false' },
+            ]} />
         </SimpleForm>
     </Edit>
 );
