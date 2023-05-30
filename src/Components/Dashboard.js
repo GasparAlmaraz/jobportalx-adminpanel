@@ -42,7 +42,6 @@ export const Dashboard = () => {
             .catch(error => console.error(error));
     }, [dataProvider]);
 
-
     const data = setDataChart(usersAmount.length, companiesAmount.length, vacanciesAmount.length);
     return (
         <Card>
@@ -55,11 +54,11 @@ export const Dashboard = () => {
                             Últimos usuarios registrados:
                         </Typography>
                         {
-                            users.map(user => (
+                            users.map(user => user ? (
                                 <Typography key={user?.id} variant="body2" component="p" >
                                     Nombre: {user?.name} {user?.lastName}, {user?.email}
                                 </Typography>
-                            ))
+                            ) : (<></>))
                         }
                     </div>
 
@@ -69,11 +68,12 @@ export const Dashboard = () => {
                             Últimas reviews:
                         </Typography>
                         {
-                            reviews.map(review => (
+                            reviews.map(review => review ? (
                                 <Typography key={review?.id} variant="body2" component="p">
-                                    Estrellas: {review?.stars}, Comentario: {truncateDescription(review?.stars, 10)}
+                                    Estrellas: {review?.stars}, Comentario: {truncateDescription(review?.text, 10)}
                                 </Typography>
-                            ))
+                            ) : (<></>)
+                            )
                         }
                     </div>
 
@@ -82,11 +82,11 @@ export const Dashboard = () => {
                             Últimas vacantes creadas:
                         </Typography>
                         {
-                            vacancies.map(vacancy => (
+                            vacancies.map(vacancy => vacancy ? (
                                 <Typography key={vacancy?.id} variant="body2" component="p">
                                     Título: {vacancy?.title}, Descripción: {truncateDescription(vacancy?.description, 10)}
                                 </Typography>
-                            ))
+                            ) : (<></>))
                         }
                     </div>
                 </Box>
