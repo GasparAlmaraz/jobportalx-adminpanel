@@ -48,15 +48,17 @@ export const Dashboard = () => {
             <CardHeader title="Bienvenido al panel de administrador de JobPortal X" />
             <CardContent>
 
-                <Box display="flex" flexDirection="row" marginTop="20px" alignContent="space-around" fontWeight="bold">
+                <Box display="flex" flexDirection="row" marginTop="20px" alignContent="space-around" fontWeight="bold" align="center">
                     <div display="flex" flexDirection="column" justifyContent="center">
                         <Typography variant="h6" component="h3">
                             Últimos usuarios registrados:
                         </Typography>
                         {
                             users.map(user => user ? (
-                                <Typography key={user?.id} variant="body2" component="p" >
-                                    Nombre: {user?.name} {user?.lastName}, {user?.email}
+                                <Typography key={user?.id} variant="body2" component="p" backgroundColor="#EBEBEBff" borderRadius="10px" margin="10px">
+                                    {user?.name} {user?.lastName}
+                                    <br></br>
+                                    {user?.email}
                                 </Typography>
                             ) : (<></>))
                         }
@@ -69,7 +71,7 @@ export const Dashboard = () => {
                         </Typography>
                         {
                             reviews.map(review => review ? (
-                                <Typography key={review?.id} variant="body2" component="p">
+                                <Typography key={review?.id} variant="body2" component="p" backgroundColor="#EBEBEBff" borderRadius="10px" margin="10px">
                                     Estrellas: {review?.stars}, Comentario: {truncateDescription(review?.text, 10)}
                                 </Typography>
                             ) : (<></>)
@@ -83,7 +85,7 @@ export const Dashboard = () => {
                         </Typography>
                         {
                             vacancies.map(vacancy => vacancy ? (
-                                <Typography key={vacancy?.id} variant="body2" component="p">
+                                <Typography key={vacancy?.id} variant="body2" component="p" backgroundColor="#EBEBEBff" borderRadius="10px" margin="10px">
                                     Título: {vacancy?.title}, Descripción: {truncateDescription(vacancy?.description, 10)}
                                 </Typography>
                             ) : (<></>))
